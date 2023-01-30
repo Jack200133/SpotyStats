@@ -1,0 +1,24 @@
+.regiones {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.region {
+    background-color: #272121;
+    border-radius: 15px;
+    margin: 20px 30px 10px 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 40vw;
+
+    text-align: center;
+}
+
+.region:hover {
+    color: rgba(255, 255, 255, 1);
+    box-shadow: 0 5px 15px #1DB954;
+    cursor: pointer;
+  }

@@ -39,3 +39,19 @@
     font-size: 2.2em;
     line-height: 1.1;
 }
+
+a {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+}
+
+.selected{
+    content: "";
+    border-bottom: 6px solid #1DB954;
+    bottom: 0;
+    top: 0;
+}
