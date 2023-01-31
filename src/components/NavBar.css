@@ -55,3 +55,17 @@ a {
     bottom: 0;
     top: 0;
 }
+
+.exit {
+    position: absolute;
+    right: 0;
+    width: 25px;
+    margin-right: 5rem;
+    font-size: 2rem;
+    color: white;
+}
+
+.exit {
+    color: #1DB954;
+    cursor: pointer;
+}

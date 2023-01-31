@@ -1,11 +1,16 @@
 import { useEffect, useState } from 'react'
 import "./regiones.css"
+import arrow from "../../assets/arrow.png"
 
-const Regiones = () => {
+const Regiones = (start) => {
 
     const Regiones = ["Norte América", "Centro América","Sur América", "Europa", "Asia", "Oceanía"]
-    const [selected, setSelected] = useState("");
+    const [selected, setSelected] = useState(false);
     const [active, setActive] = useState(false);
+
+    const handleReturn = () => {
+        setActive(false);
+    }
 
     const handleClick = (index) => {
         setSelected(Regiones[index]);
@@ -23,7 +28,10 @@ const Regiones = () => {
             {
                 active && 
                 <div className="region-selected">
-                    <h1>{selected}</h1>
+                    <div className="titulo-region">
+                        <img src={arrow} onClick= {() => {handleReturn()} }></img>
+                        <h1>{selected}</h1>
+                    </div>
                 </div>
             }
         </div>
