@@ -6,6 +6,30 @@ const Inicio = ({ setAuthenticated, setRegistro }) => {
     
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    // const client_id = "3e5c97ca35184e2e907593dce6277b70"
+    // const client_secret = "508c63883dfc48f2a4988c39154a3d9e "
+    // const redirect_uri = "http://localhost:5000/callback"
+
+    // const refreshSongs = async () => {
+    //     //const url = `http://localhost:5000/refresh/`
+    //     //const response = await fetch(url)
+    //     //const responseJSON = await response.json()
+
+        
+    //     const state = (Math.random().toString(36)).slice(2, 16+2)
+
+    //     localStorage.setItem("stateKey", state)
+    //     var scope = 'user-read-private user-read-email'
+    //     var url = 'https://accounts.spotify.com/authorize'
+    //     url += '?response_type=token'
+    //     url += '&client_id=' + encodeURIComponent(client_id)
+    //     url += '&scope=' + encodeURIComponent(scope)
+    //     url += '&redirect_uri=' + encodeURIComponent(redirect_uri)
+    //     url += '&state=' + encodeURIComponent(state)
+
+    //     console.log(url)
+
+    // }
 
     const authenticate = async (e) => {
         const url = `http://localhost:5000/login/`
@@ -26,6 +50,7 @@ const Inicio = ({ setAuthenticated, setRegistro }) => {
         console.log("DATOS: ",responseJSON.password)
 
         if (responseJSON.password == password){
+            //refreshSongs()
             setAuthenticated(true)
         }else{
             setAuthenticated(false)

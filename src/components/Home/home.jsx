@@ -7,7 +7,9 @@ import '../../App.css'
 
 
 const Home = ({setAuthenticated}) => {
+
     const [home, setHome] = useState("")
+
 
     const getContent = () => {
         switch (home) {

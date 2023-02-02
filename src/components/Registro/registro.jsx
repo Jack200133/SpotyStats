@@ -16,25 +16,33 @@ const Registro = ({setRegistro}) => {
     const obligatorios = [email, password, nombre, genero]
 
     const register = async (e) => {
-        console.log('entro')
 
-        const url = `http://localhost:5000/login/`
+        const url = `http://localhost:5000/register/`
 
-        const json = JSON.stringify({
+        const json = {
             email: email,
-            password: password 
-        })
+            password: password,
+            nombre: nombre,
+            apellido: apellido,
+            seguidores: seguidores == "" ? 0 : seguidores,
+            nombreArtistico: nombreArtistico,
+            cantidadCanciones: cantidadCanciones == "" ? 0 : cantidadCanciones,
+            generos: genero.split(",")
+        }
 
-        const response = await fetch(url, {
-            method: 'POST',body: json,headers: {
-        }})
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(json)
+        }
+
+        const response = await fetch(url, options)
         const responseJSON = await response.json()
         console.log("DATOS: ",responseJSON[0])
 
-        if (responseJSON[0]){
-            setAuthenticated(true)
-        }
-        setAuthenticated(false)
+        setRegistro(false)
     }
 
     return (
