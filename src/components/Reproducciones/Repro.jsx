@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react'
 const Repro = () => {
     const [repo, setRepo] = useState([]);
     const [index, setIndex] = useState(0);
+    const [nombre, setNombre] = useState("");
+    const [edad, setEdad] = useState({});
 
     useEffect(() => {
         const url1 = `http://localhost:5000/reproductions/${index}`
@@ -39,6 +41,28 @@ const Repro = () => {
         console.log(responseJSON)
         const newRepo = repo.filter((rep) => rep._id !== id)
         setRepo(newRepo)
+    }
+
+    const UpdateReproduccion = async (id) => {
+        const url = `http://localhost:5000/uploadR/`
+
+        const json = {
+            nombre: localStorage.getItem('user'),
+            nuevap: password,
+        }
+        console.log("JSON: ", json)
+
+        const options = {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(json)
+        }
+
+        const response = await fetch(url, options)
+        const responseJSON = await response.json()
+        console.log("DATOS: ", responseJSON)
     }
 
 
@@ -81,12 +105,12 @@ const Repro = () => {
                                     </div>
                                     <div className="artista-info2" >
                                         <p className="artista-info-key">{reproduccion_Titledata.usuario.nombre}</p>
-                                        <p className="artista-info-value">{rep.usuario.nombre}</p>
+                                        <input type="text" className="artista-info-input" value={rep.usuario.nombre} onChange={(e) => { setNombre(e.target.value) }} />
 
                                     </div>
                                     <div className="artista-info2" >
                                         <p className="artista-info-key">{reproduccion_Titledata.usuario.edad}</p>
-                                        <p className="artista-info-value2">{rep.usuario.edad}</p>
+                                        <input type="text" className="artista-info-input" value={rep.usuario.edad} onChange={(e) => { setEdad(e.target.value) }} />
 
                                     </div>
                                     <div className="artista-info2" >
@@ -109,7 +133,11 @@ const Repro = () => {
                                     </div>
 
                                 </div>
-                                <button className="btn" onClick={() => { deleteReproduccion(rep._id) }}>Eliminar</button>
+                                <div className='botones'>
+                                    <button className="btn" onClick={() => { deleteReproduccion(rep._id) }}>Eliminar</button>
+                                    <button className="btn2" onClick={() => { console.log('hola') }}>Editar</button>
+                                </div>
+                                
                             </>
 
 

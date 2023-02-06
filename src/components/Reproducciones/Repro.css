@@ -63,6 +63,16 @@
     margin-top: 5px;
 }
 
+.botones{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    width: 100%;
+    border-bottom: 1px solid #585858;
+}
+
 .btn {
     display: flex;
     flex-direction: row;
@@ -82,4 +92,40 @@
     background-color: crimson;
     border: 4px solid crimson;
 
+}
+
+.btn2 {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: end;
+    margin-left: 10px;
+    position: relative;
+    top: -75px;
+    left: -50px;
+    font-size: 1.2em;
+
+    background-color: #272121;
+    border: 4px solid #1DB954;
+}
+
+.btn2:hover {
+    background-color: #1DB954;
+    border: 4px solid #1DB954;
+
+}
+
+.artista-info-input {
+    width: fit-content;
+    text-align: right;
+    height: 15px;
+    font-size: 1.2em;
+    font-weight: 200;
+    color: #ffffff;
+    background-color: #272121;
+    border: 1px solid #585858;
+    border-radius: 5px;
+    padding-right: 1;
+    /* margin-left: 10px;
+    margin-right: 10px; */
 }

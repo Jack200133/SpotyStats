@@ -71,7 +71,7 @@ const Generos = (start) => {
                                         <div key={index}>
                                             {
                                                 <div className="paises-container">
-                                                    <div className="pais-cancion"></div>
+                                                    <div className="genero-cancion"></div>
                                                     {
                                                         item["canciones"].map((cancion, index) => {
                                                             return (

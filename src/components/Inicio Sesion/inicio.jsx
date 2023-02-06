@@ -54,15 +54,14 @@ const Inicio = ({ setAuthenticated, setRegistro }) => {
             localStorage.setItem("user", responseJSON.nombre)
             localStorage.setItem("apellido", responseJSON.apellido)
             localStorage.setItem("seguidores", responseJSON.seguidores)
-            localStorage.setItem("nombre_artistico", responseJSON.nombre_artistico)
-            localStorage.setItem("cantidad_canciones", responseJSON.cantidad_caniones)
+            localStorage.setItem("nombre_artistico", responseJSON.nombre_artisitco)
+            localStorage.setItem("cantidad_canciones", responseJSON.cantidad_canciones)
             localStorage.setItem("generos", responseJSON.generos)
 
         } catch (e) {
             console.error(e);
         }
 
-        console.log("DATOS: ", responseJSON.password)
 
         if (responseJSON.password == password) {
             //refreshSongs()
