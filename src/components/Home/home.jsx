@@ -5,6 +5,7 @@ import Regiones from '../Regiones/regiones'
 import CambioP from '../CambioP/cambioP'
 import Repro from '../Reproducciones/Repro'
 import '../../App.css'
+import Generos from '../Generos/generos'
 
 
 
@@ -24,7 +25,7 @@ const Home = ({ setAuthenticated }) => {
             case "reproducciones":
                 return <Repro />
             case "géneros":
-            //return <Genre />
+                return <Generos />
             default:
                 return <Artista />
         }

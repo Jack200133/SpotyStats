@@ -1,34 +1,18 @@
 import { useEffect, useState } from 'react'
-import "./regiones.css"
+import "./generos.css"
 import arrow from "../../assets/arrow.png"
 
-const Regiones = (start) => {
+const Generos = (start) => {
 
     const [regiones, setRegiones] = useState([])
     const [continentesData, setContinentesData] = useState([])
     const [data, setData] = useState([]);
     const [selected, setSelected] = useState(false);
     const [active, setActive] = useState(false);
-
-    const getRegiones = async () => {
-        const url = 'http://localhost:5000/regiones/'
-        const options = {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-        const response = await fetch(url, options)
-        const responseJSON = await response.json()
-        
-        setRegiones(responseJSON)
-
-    }
-        
         
 
     const getData = async () => {
-        const url = 'http://localhost:5000/topRegion/'
+        const url = 'http://localhost:5000/topGenero/'
 
         const options = {
             method: 'GET',
@@ -39,13 +23,16 @@ const Regiones = (start) => {
         const response = await fetch(url, options)
         const responseJSON = await response.json()
         console.log(responseJSON)
+
         setData(responseJSON)
+        setRegiones(responseJSON)
+        
+        
 
     }
 
     useEffect(() => {
         async function fetchData() {
-            await getRegiones()
             await getData()
         }
         fetchData()
@@ -78,13 +65,13 @@ const Regiones = (start) => {
                     </div>
                     <div className="paises-region">
                         {
-                            data.map((item, index) => {
-                                if (item["_id"]["region"] == selected){
+                        data.map((item, index) => {
+                            if (item["_id"]== selected){
                                     return (
                                         <div key={index}>
                                             {
                                                 <div className="paises-container">
-                                                    <div className="pais-cancion"> {item["_id"]["pais"]} </div>
+                                                    <div className="pais-cancion"></div>
                                                     {
                                                         item["canciones"].map((cancion, index) => {
                                                             return (
@@ -100,8 +87,9 @@ const Regiones = (start) => {
                                         </div>
                                             
                                     )
-                                }
-                            })
+                            }
+
+                        })
                         }
                     </div>
 
@@ -111,4 +99,4 @@ const Regiones = (start) => {
     )
 }
 
-export default Regiones;
+export default Generos;
