@@ -1,0 +1,43 @@
+.cambio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #272121;
+    width: auto;
+    border-radius: 15px;
+    margin: 60px 30px 10px 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.password {
+    border-radius: 7px;
+    width: auto;
+    height: 30px;
+    background-color: #272121;
+    color: white;
+    font-size: 14px;
+}
+
+.confirmar {
+    margin-top: 50px;
+    width: auto;
+    height: fit-content;
+    border: 1px solid rgb(173, 166, 166);
+    border-radius: 15px;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+    background-color: #191414;
+}
+
+.confirmar:hover {
+    border: 1px solid #1DB954;
+}
+
+h2,
+h5 {
+    color: #fff;
+    text-decoration: underline;
+    text-decoration-color: #1DB954;
+}

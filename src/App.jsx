@@ -9,20 +9,25 @@ function App() {
 
   const [authenticated, setAuthenticated] = useState(false)
   const [registro, setRegistro] = useState(false)
-  
 
-  
+  useEffect(() => {
+    if (localStorage.getItem('authenticated')) {
+      setAuthenticated(true)
+    }
+  }, [])
+
+
   return (
     <div className="App">
       {
         authenticated ?
-        <Home setAuthenticated = {setAuthenticated}/> :
-        registro ?
-        <Registro setRegistro = {setRegistro}/> :
-        <Inicio setAuthenticated = {setAuthenticated} setRegistro = {setRegistro}/>
+          <Home setAuthenticated={setAuthenticated} /> :
+          registro && !authenticated ?
+            <Registro setRegistro={setRegistro} /> :
+            <Inicio setAuthenticated={setAuthenticated} setRegistro={setRegistro} />
       }
-  
-      
+
+
     </div>
   )
 }

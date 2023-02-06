@@ -21,7 +21,7 @@
     color: rgba(255, 255, 255, 1);
     box-shadow: 0 5px 15px #1DB954;
     cursor: pointer;
-  }
+}
 
 .region-selected {
     display: flex;
@@ -35,7 +35,7 @@
     padding-bottom: 15px;
 }
 
-.titulo-region{
+.titulo-region {
     display: flex;
     justify-content: space-between;
     width: 90%;
@@ -43,11 +43,19 @@
     margin-right: 50px;
 }
 
-.titulo-region img{
+.titulo-region img {
     object-fit: contain;
 
 }
 
-.titulo-region img:hover{
+.titulo-region img:hover {
     cursor: pointer;
+}
+
+.paises-region {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-left: 50px;
+    margin-right: 50px;
 }
