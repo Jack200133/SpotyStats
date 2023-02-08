@@ -9,6 +9,19 @@ const NavBar = ({ home, setHome, setAuthenticated }) => {
         setHome(e.target.innerText.toLowerCase())
     }
 
+    const handleExit = () => {
+        localStorage.setItem("authenticated", false)
+        localStorage.setItem("email", "")
+        localStorage.setItem("password", "")
+        localStorage.setItem("user", "")
+        localStorage.setItem("apellido", "")
+        localStorage.setItem("seguidores", "")
+        localStorage.setItem("nombre_artistico", "")
+        localStorage.setItem("cantidad_canciones", "")
+        localStorage.setItem("generos", "")
+        setAuthenticated(false)
+    }
+
     return (
         <div className="nav-bar-container">
 
@@ -19,8 +32,8 @@ const NavBar = ({ home, setHome, setAuthenticated }) => {
                 <a className={`${home === "regiones" ? "selected" : ""}`} onClick={(e) => handleClick(e)}>REGIONES</a>
                 <a className={`${home === "géneros" ? "selected" : ""}`} onClick={(e) => handleClick(e)}>GÉNEROS</a>
                 <a className={`${home === "reproducciones" ? "selected" : ""}`} onClick={(e) => handleClick(e)}>REPRODUCCIONES</a>
-                <img src={exit} className='exit' onClick={() => setAuthenticated(false)} />
-                <img src={cambio} className='exit' onClick={() => setHome("cambiop")} />
+                <img src={exit} className='exit' onClick={() => handleExit()} />
+                <img src={cambio} className='exit' onClick={() => {setHome("cambiop"); localStorage.clear()}} />
             </nav>
 
 

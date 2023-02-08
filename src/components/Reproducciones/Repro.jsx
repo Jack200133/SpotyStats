@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 const Repro = () => {
     const [repo, setRepo] = useState([]);
     const [index, setIndex] = useState(0);
-    const [nombre, setNombre] = useState("");
+    const [nombre, setNombre] = useState({});
     const [edad, setEdad] = useState({});
 
     useEffect(() => {
@@ -43,28 +43,60 @@ const Repro = () => {
         setRepo(newRepo)
     }
 
-    const UpdateReproduccion = async (id) => {
-        const url = `http://localhost:5000/uploadR/`
+    const UpdateReproduccion = async (id,index) => {
+        try{
+            const url = `http://localhost:5000/updateRepro/`
 
-        const json = {
-            nombre: localStorage.getItem('user'),
-            nuevap: password,
+            const json = {
+                id: id,
+                nuevonombre: nombre[index],
+                nuevaedad: edad[index]
+            }
+
+            const options = {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(json)
+            }
+
+            const response = await fetch(url, options)
+            const responseJSON = await response.json()
+            alert('Cambio exitoso')
         }
-        console.log("JSON: ", json)
-
-        const options = {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(json)
+        catch(error){
+            console.log(error)
         }
-
-        const response = await fetch(url, options)
-        const responseJSON = await response.json()
-        console.log("DATOS: ", responseJSON)
+    
     }
 
+    const UpdateEdad = async (index, id) =>{
+        setEdad(prevState => ({
+            ...prevState,
+            [index]: id.target.value
+        }))
+    }
+
+    const UpdateName = async (index, id) =>{
+        setNombre(prevState => ({
+            ...prevState,
+            [index]: id.target.value
+        }))
+    }
+
+    useEffect(() => {
+        repo.map((rep, index) => {
+            setNombre(prevState => ({
+                ...prevState,
+                [index]: rep.usuario.nombre
+            }))
+            setEdad(prevState => ({
+                ...prevState,
+                [index]: rep.usuario.edad
+            }))
+        })
+    }, [repo])
 
     // 
 
@@ -82,15 +114,12 @@ const Repro = () => {
         }
     }
 
-
-
-
-
     return (
         <>
             <div className="reproducciones">
                 {
                     repo.map((rep, index) => {
+
                         return (
 
                             <>
@@ -105,12 +134,12 @@ const Repro = () => {
                                     </div>
                                     <div className="artista-info2" >
                                         <p className="artista-info-key">{reproduccion_Titledata.usuario.nombre}</p>
-                                        <input type="text" className="artista-info-input" value={rep.usuario.nombre} onChange={(e) => { setNombre(e.target.value) }} />
+                                        <input type="text" className="artista-info-input" value={ nombre[index] } title="nombre_usuario" placeholder='' onChange={(e) => { UpdateName(index, e) }} />
 
                                     </div>
                                     <div className="artista-info2" >
                                         <p className="artista-info-key">{reproduccion_Titledata.usuario.edad}</p>
-                                        <input type="text" className="artista-info-input" value={rep.usuario.edad} onChange={(e) => { setEdad(e.target.value) }} />
+                                        <input type="text" className="artista-info-input" value={ edad[index] } title="edad_usuario" placeholder='' onChange={(e) => { UpdateEdad(index, e) }} />
 
                                     </div>
                                     <div className="artista-info2" >
@@ -135,7 +164,7 @@ const Repro = () => {
                                 </div>
                                 <div className='botones'>
                                     <button className="btn" onClick={() => { deleteReproduccion(rep._id) }}>Eliminar</button>
-                                    <button className="btn2" onClick={() => { console.log('hola') }}>Editar</button>
+                                    <button className="btn2" onClick={() => { UpdateReproduccion(rep._id,index) }}>Editar</button>
                                 </div>
                                 
                             </>

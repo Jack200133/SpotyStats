@@ -11,7 +11,7 @@ function App() {
   const [registro, setRegistro] = useState(false)
 
   useEffect(() => {
-    if (localStorage.getItem('authenticated')) {
+    if (localStorage.getItem('authenticated') === 'true') {
       setAuthenticated(true)
     }
   }, [])
