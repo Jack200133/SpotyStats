@@ -1,0 +1,43 @@
+.artista {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #272121;
+    border-radius: 15px;
+    margin: 60px 30px 10px 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.artista-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+    width: 60%;
+    padding-left: 100px;
+    padding-right: 100px;
+    border-bottom: 1px solid #585858;
+}
+
+.artista-info-key {
+    width: fit-content;
+    font-size: 1.2em;
+    font-weight: bold;
+
+    color: #ffffff;
+    margin: 0 auto 0 10px;
+}
+
+.artista-info-key:hover {
+    border-bottom: 2px solid #1DB954;
+}
+
+.artista-info-value {
+    width: fit-content;
+    font-size: 1.2em;
+    font-weight: 200;
+    color: #ffffff;
+    margin-left: 10px;
+}

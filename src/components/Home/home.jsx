@@ -6,6 +6,7 @@ import CambioP from '../CambioP/cambioP'
 import Repro from '../Reproducciones/Repro'
 import '../../App.css'
 import Generos from '../Generos/generos'
+import Cancion from '../Cancion/Cancion'
 
 
 
@@ -26,6 +27,9 @@ const Home = ({ setAuthenticated }) => {
                 return <Repro />
             case "géneros":
                 return <Generos />
+            case "canciones":
+                return <Cancion />
+
             default:
                 return <Artista />
         }
