@@ -72,6 +72,10 @@ const Generos = (start) => {
                                             {
                                                 <div className="paises-container">
                                                     <div className="genero-cancion"></div>
+                                                    <div className="genero-titulo" key={index}>
+                                                        <div> {"Cancion"} </div>
+                                                        <div> {"Tiempo reproducido"} </div>
+                                                    </div>
                                                     {
                                                         item["canciones"].map((cancion, index) => {
                                                             return (
