@@ -33,8 +33,8 @@ const NavBar = ({ home, setHome, setAuthenticated }) => {
                 <a className={`${home === "géneros" ? "selected" : ""}`} onClick={(e) => handleClick(e)}>GÉNEROS</a>
                 <a className={`${home === "reproducciones" ? "selected" : ""}`} onClick={(e) => handleClick(e)}>REPRODUCCIONES</a>
                 <a className={`${home === "canciones" ? "selected" : ""}`} onClick={(e) => handleClick(e)}>CANCIONES</a>
-                <img src={exit} className='exit' onClick={() => handleExit()} />
-                <img src={cambio} className='exit' onClick={() => { setHome("cambiop"); localStorage.clear() }} />
+                <img src={exit} className='exit' onClick={() => handleExit() } />
+                <img src={cambio} className='exit' onClick={() =>  setHome("cambiop") } />
             </nav>
 
 
